@@ -20,12 +20,13 @@ app.use(
     saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
     cookie: {
-      httpOnly: true,
+      httpOnly: false,
       secure: false,
     },
     name: "session-cookie",
   })
 );
+
 app.use((req, res, next) => {
   console.log("모든 요청에 다 실행됩니다.");
   next();
