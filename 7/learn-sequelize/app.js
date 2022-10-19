@@ -3,7 +3,7 @@ const path = require("path");
 const morgan = require("morgan");
 const nunjucks = require("nunjucks");
 
-const { sequelize } = require("sequelize");
+const { sequelize } = require("./models");
 
 const app = express();
 app.set("port", process.env.PORT || 3000);
