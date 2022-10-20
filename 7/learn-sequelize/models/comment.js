@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 module.exports = class Comment extends Sequelize.Model {
   static init(sequelize) {
-    return super(init)(
+    return super.init(
       {
         comment: {
           type: Sequelize.STRING(100),
@@ -25,5 +25,7 @@ module.exports = class Comment extends Sequelize.Model {
       }
     );
   }
-  static associations(db) {}
+  static associate(db) {
+    db.Comment.belongsTo(db.User, { foreignKey: "commenter", targetkey: "id" });
+  }
 };
